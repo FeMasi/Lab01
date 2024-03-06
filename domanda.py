@@ -1,3 +1,4 @@
+import random
 class Domanda:
     def __init__(self, testo, punteggio, risposta_corretta, risposta_2, risposta_3_, risposta_4):
         self.testo = testo
@@ -6,6 +7,18 @@ class Domanda:
         self.risposta_2 = risposta_2
         self.risposta_3 = risposta_3_
         self.risposta_4 = risposta_4
+
+
+def display_question(question):
+    print("\nQuestion:", question.text)
+    print("Difficulty Level:", question.difficulty)
+    print("\nOptions:")
+    all_answers = [question.risposta_corretta] + [question.risposta_2] + [question.risposta_3] + [question.risposta_4]
+    random.shuffle(all_answers)
+    for i, answer in enumerate(all_answers, start=1):
+        print(f"{i}. {answer}")
+    return all_answers.index(question.correct_answer) + 1
+
 
 def read_questions_from_file(file_path):
     questions = []
