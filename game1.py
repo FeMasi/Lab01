@@ -75,16 +75,11 @@ def main():
             nome = input("inserisci il tuo nome")
 
             processing_foo1s = False
-
+    # da vedere
             for line in fileinput.input('punti.txt', inplace=1):
                 if line.endswith(str(punteggio)):
                     processing_foo1s = True
-                else:
-                    if processing_foo1s:
-                        print(nome + ' ' + str(punteggio))
-
-                    processing_foo1s = False
-                print(line),
+                    print(nome + ' ' + str(punteggio)),
             break
 
 
